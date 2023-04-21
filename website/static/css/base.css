@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed&family=Bellefair&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #D0D6F9;
+    background-size: cover;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.grid {
+    display: grid;
+}
+
+h1 {
+    font-size: 4.5em;
+    font-family: 'Barlow', sans-serif;
+    margin: 1rem 0;
+}
+
+h2 {
+    font-family: 'Barlow', sans-serif;
+    font-size: 2em;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+/*header sytling */
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+#ham {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+.header-menue>nav {
+    background-color: #0b0d1773;
+    backdrop-filter: blur(35px);
+    font-size: 1.2em;
+    counter-reset: css-counter 00;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header-menue>nav a {
+    counter-increment: css-counter 1;
+}
+
+.header-menue>nav a::before {
+    content: counter(css-counter)" ";
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 0;
+    margin: 1rem 0;
+    text-transform: uppercase;
+}
+
+#ham-label:has(#ham:checked)+.header-menue>nav {
+    left: 0;
+    right: 0;
+}
+
+#ham-label:has(#ham:checked) {
+    background-image: url(../assets/shared/icon-close.svg);
+    background-repeat: no-repeat;
+}
+
+/* end header styling */
+
+
+/* main styling */
+main {
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.container {
+    margin: 15% 0;
+}
+
+
+.container:last-child {
+    margin-bottom: 0;
+}
+
+.capitalize {
+    text-transform: uppercase;
+}
+
+h2:last-child {
+    margin-bottom: 1rem;
+}
+
+p {
+    margin: 0;
+}
+
+.round-circle {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    display: grid;
+    place-content: center;
+    align-items: center;
+    text-transform: capitalize;
+    font-weight: 100;
+    margin-inline: auto;
+}
+
+/* destination syles */
+.destinations {
+    justify-content: space-around;
+    text-transform: uppercase;
+}
+
+.nav {
+    justify-content: space-around;
+}
+
+.nav a {
+    color: #D0D6F9;
+}
+
+.model {
+    margin: 2rem 0;
+}
+
+.pic {
+    width: 100%;
+    height: auto;
+    margin: 2rem 0;
+}
+
+/* end destination styles */
+/* crew styling */
+.line {
+    margin-top: -2.1rem;
+    border: none;
+    border-top: 1px solid #666060;
+}
+
+.crew-link {
+    margin: 2rem 0;
+    padding: 0.5rem 0;
+    background-color: rgb(139, 128, 128);
+}
+
+/*end crew styling */
+
+/*end main sytling*/
+
+/*media query*/
+@media (min-width:1025px) {
+    .flex {
+        gap: 5rem;
+    }
+
+    .flex-xm {
+        display: flex;
+        gap: 5rem;
+    }
+
+    .grid {
+        grid-gap: 3rem;
+    }
+
+    .grid-xm {
+        display: grid;
+    }
+
+    main {
+        text-align: left;
+        padding: 10% 6rem 0;
+        font-size: 1.5em;
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 5rem;
+    }
+
+    main .container:first-child {
+        flex: 1;
+    }
+
+    #ham-container {
+        flex: 0.7;
+    }
+
+    #ham-label {
+        display: none;
+    }
+
+    .container {
+        margin: 0;
+    }
+
+    .round-circle {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .data {
+        display: flex;
+        font-size: 0.8em;
+        justify-content: space-around;
+    }
+
+    .xm-reverse {
+        display: grid;
+        order: 1;
+    }
+
+    .xm-reverse>p {
+        justify-self: center;
+    }
+
+    .model {
+        width: 28rem;
+    }
+
+    .crew-link {
+        width: 4rem;
+        height: 4rem;
+        order: 1;
+    }
+
+    .order {
+        display: grid;
+    }
+
+    .footer {
+        order: 1;
+    }
+}
+
+@media (min-width:768px)and (max-width:1024px) {
+    body {
+        font-size: 1.2em;
+    }
+
+    .container {
+        padding: 2rem 2rem 0;
+        margin-bottom: 7%;
+    }
+
+    .container:last-child {
+        margin-top: 0;
+        padding-bottom: 2rem;
+    }
+
+    #ham-container {
+        flex: 0.6;
+    }
+
+    #ham-label {
+        display: none;
+    }
+
+
+    .round-circle {
+        width: 15rem;
+        height: 15rem;
+        padding: 0 !important;
+    }
+
+    .nav {
+        padding-inline: 3rem;
+    }
+
+    .model {
+        width: 20rem;
+    }
+
+    .destinations {
+        padding-inline: 6rem;
+    }
+
+    .crew-link {
+        width: 2rem;
+        height: 2rem;
+    }
+
+}
+
+@media (max-width:767px) {
+    #ham-label {
+        background-image: url(../assets/shared/icon-hamburger.svg);
+        width: 2rem;
+        height: 1.3rem;
+        margin-left: auto;
+        display: block;
+        transition: 500ms all;
+        position: absolute;
+        right: 1rem;
+        top: 1.5rem;
+        z-index: 2;
+    }
+
+    .header-menue {
+        position: relative;
+        overflow-x: clip;
+        width: 15rem;
+    }
+
+    .header-menue>nav {
+        display: grid;
+        position: absolute;
+        min-height: 100vh;
+        left: 100%;
+        top: 0;
+        transition: 500ms all;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        background-color: #0b0d1773;
+        backdrop-filter: blur(35px);
+        font-size: 1.2em;
+        counter-reset: css-counter 00;
+    }
+
+    .model {
+        width: 10rem;
+    }
+
+    .crew-link {
+        width: 1rem;
+        height: 1rem;
+    }
+}

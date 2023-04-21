@@ -1,0 +1,83 @@
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="shortcut icon" href="{%static 'assets/favicon-32x32.png' %}" type='image/x-icon'>
+    <title>SpaceX</title>
+    <style>
+        @media (min-width:1025px){
+            body{
+                background-image:url('../static/assets/destination/background-destination-desktop.jpg');
+            }
+        }
+        @media (max-width:1024px) and (min-width:768px){
+            body{
+                background-image:url('../static/assets/destination/background-destination-tablet.jpg');
+            }
+        }
+        @media (max-width:767px){
+            body{
+                background-image:url('../static/assets/destination/background-destination-mobile.jpg');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    <main>
+        <section class='container'>
+            <p class='capitalize'>pick your destination</p>
+            <img class='model' src="../static/assets/destination/image-{{data.name|lower}}.png" alt="image-moon">
+        </section>
+        <section class='container'>
+            <section class='flex nav'> 
+                <a
+                {% if data.name == 'Moon' %}
+                style="color:#ffffff;
+                border-bottom:2px solid #ffffff;"
+                {% endif %} 
+                href="{% url 'pages:destination' id=1 %}">moon</a>
+                <a 
+                {% if data.name == 'Europa' %}
+                style="color:#ffffff;
+                border-bottom:2px solid #ffffff;"
+                {% endif %} 
+                href="{% url 'pages:destination' id=3 %}">europa</a>
+                <a
+                {% if data.name == 'Mars' %}
+                style="color:#ffffff;
+                border-bottom:2px solid #ffffff;"
+                {% endif %} 
+                 href="{% url 'pages:destination' id=2 %}">marse</a>
+                <a 
+                {% if data.name == 'Titan' %}
+                style="color:#ffffff;
+                border-bottom:2px solid #ffffff;"
+                {% endif %} 
+                href="{% url 'pages:destination' id=4 %}">titan</a>
+            </section>
+            <h1>{{data.name}}</h1>
+            <p>{{data.desc}}</p>
+        <hr/>
+        <section class='flex data'>
+
+            <section>
+                <p class='capitalize'>avg. distance</p>
+                <h2> 
+                    {{data.distance|format_number}} km
+                </h2>
+            </section>
+            <section>
+                <p class='capitalize'>est. travel time</p>
+                <h2>{{data.time}}</h2>
+            </section>
+        </section>
+        </section>
+    </main>
+</body>
+</html>

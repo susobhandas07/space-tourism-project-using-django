@@ -1,0 +1,17 @@
+{% load static %}
+<header>
+    <img class='img' id='header-img'src="{%static 'assets/shared/logo.svg' %}" alt="header-logo" style="width:3rem;margin:1rem;"/>
+    <section id='ham-container'>
+        <label for="ham" id='ham-label'>
+            <input type="checkbox" name="ham" id="ham"/>
+        </label>
+        <aside class='header-menue'>
+            <nav>
+                <a href="{%url 'pages:home'%}">home</a>
+                <a href="{%url 'pages:destination' id=1 %}">destination</a>
+                <a href="{%url 'pages:crew' id=1 %}">crew</a>
+                <a href="{%url 'pages:technology' id=1 %}">technology</a>
+            </nav>
+        </aside>
+    </section>
+</header>

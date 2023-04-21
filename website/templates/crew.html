@@ -1,0 +1,79 @@
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="shortcut icon" href="{%static 'assets/favicon-32x32.png' %}" type='image/x-icon'>
+    <title>SpaceX</title>
+    <style>
+        @media (min-width:1025px){
+            body{
+                background-image:url('../static/assets/crew/background-crew-desktop.jpg');
+            }
+        }
+        @media (max-width:1024px) and (min-width:768px){
+            body{
+                background-image:url('../static/assets/crew/background-crew-tablet.jpg');
+            }
+        }
+        @media (max-width:767px){
+            body{
+                background-image:url('../static/assets/crew/background-crew-mobile.jpg');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    <main >
+        <section class='container xm-reverse'>
+            <p class='capitalize'>meet your crew</p>
+            <img class='model' src="../static/assets/crew/image-{{data.name | format_name}}.png" alt="image-astronout">
+            <hr class='line'/>
+        </section>
+        <section class='container order'>
+            <section class='flex destinations footer'> 
+                <a 
+                href="{%url 'pages:crew' id=1 %}"
+                class='round-circle crew-link'
+                style="
+                {% if data.name == 'douglas hurley' %}
+                background-color:white;
+                {% endif %}
+                border:none;"></a>
+                <a
+                href="{%url 'pages:crew' id=2 %}"
+                class='round-circle crew-link'
+                style="
+                {% if data.name == 'mark shuttleworth' %}
+                background-color:white;
+                {% endif %}
+                border:none;"></a>
+                <a
+                href="{%url 'pages:crew' id=3 %}"
+                class='round-circle crew-link'
+                style="
+                {% if data.name == 'victor glover' %}
+                background-color:white;
+                {% endif %}
+                border:none;"></a>
+                <a
+                href="{%url 'pages:crew' id=4 %}"
+                class='round-circle crew-link'
+                style="
+                {% if data.name == 'anousheh ansari' %}
+                background-color:white;
+                {% endif %}
+                border:none;"></a>
+            </section>
+            <p class='capitalize'> {{data.position}} </p>
+            <h2 class='capitalize'class='capitalize'>{{data.name}}</h2>
+            <p> {{data.desc}} </p>
+        </section>
+    </main>
+</body>
+</html>

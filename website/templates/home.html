@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="shortcut icon" href="{%static 'assets/favicon-32x32.png' %}" type='image/x-icon'>
+    <title>SpaceX</title>
+    <style>
+        @media (min-width:1025px){
+            body{
+                background-image:url('../static/assets/home/background-home-desktop.jpg');
+            }
+        }
+        @media (max-width:1024px) and (min-width:768px){
+            body{
+                background-image:url('../static/assets/home/background-home-tablet.jpg');
+            }
+        }
+        @media (max-width:767px){
+            body{
+                background-image:url('../static/assets/home/background-home-mobile.jpg');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    <main>
+        <div class='container'> 
+            <h4>SO YOU WANT TO TRAVEL TO</h4>
+            <h1 class='container'>SPACE</h1>
+            <section class='container'>Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</section>
+        </div>
+        <div class='round-circle container' style='background-color:#ffffff;'>
+            <h2 style='margin:0;color:#0B0D17;'>explore</h2>
+        </div>
+    </main>
+    <script src="{%static 'js/header-menue.js'%}"></script>
+</body>
+</html>

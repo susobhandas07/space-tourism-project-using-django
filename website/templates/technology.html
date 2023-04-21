@@ -1,0 +1,61 @@
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="shortcut icon" href="{%static 'assets/favicon-32x32.png' %}" type='image/x-icon'>
+    <title>SpaceX</title>
+    <style>
+        @media (min-width:1025px){
+            body{
+                background-image:url('../static/assets/technology/background-technology-desktop.jpg');
+            }
+        }
+        @media (max-width:1024px) and (min-width:768px){
+            body{
+                background-image:url('../static/assets/technology/background-technology-tablet.jpg');
+            }
+        }
+        @media (max-width:767px){
+            body{
+                background-image:url('../static/assets/technology/background-technology-mobile.jpg');
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    <main>
+        <section class='container footer'>
+            <p class='capitalize'>space launch 101</p>
+            <picture>
+                <source media="(min-width:1025px)" srcset="../static/assets/technology/image-{{data.name | format_name}}-portrait.jpg" alt='img'>
+                <img class='pic' src="../static/assets/technology/image-{{data.name | format_name}}-landscape.jpg" alt="image">
+            </picture>
+        </section>
+        <section class='container flex-xm'>
+            <section class='flex grid-xm destinations'> 
+                <a href="{%url 'pages:technology' id=1 %}" class='round-circle' style="width:3rem; height:3rem;margin:0;
+                {% if data.name == 'launch vehicle' %}
+                background-color:white;color:#0B0D17;{% endif %}">1</a>
+                <a href="{%url 'pages:technology' id=2 %}" class='round-circle' style="width:3rem; height:3rem;margin:0;
+                {% if data.name == 'spaceport' %}
+                background-color:white;color:#0B0D17;{% endif %}">2</a>
+                <a href="{%url 'pages:technology' id=3 %}" class='round-circle' style="width:3rem; height:3rem;margin:0;
+                {% if data.name == 'space capsule' %}
+                background-color:white;color:#0B0D17;{% endif %}">3</a>
+            </section>
+            <section class='container'> 
+
+                <p class='capitalize'>the terminology</p>
+                <h2 class='capitalize'>{{data.name}}</h2>
+                <p>{{data.desc}}</p>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
